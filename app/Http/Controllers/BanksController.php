@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Bank;
 
 class BanksController extends Controller
 {
@@ -14,6 +15,12 @@ class BanksController extends Controller
     public function index()
     {
         //
+        $banks = Bank::all();
+        // 200 means in API that  responses id success
+        return response($banks,200);
+        // Api Does Not exceed
+        // return response($banks,200);
+
     }
 
     /**
