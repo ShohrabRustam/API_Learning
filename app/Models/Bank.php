@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bank extends Model
 {
+    public $table = "banks";
     use HasFactory;
     protected $guarded =[];
 }

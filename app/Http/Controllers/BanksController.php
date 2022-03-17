@@ -42,6 +42,14 @@ class BanksController extends Controller
     public function store(Request $request)
     {
         //
+        $data= $request->validate([
+            'name'=>'required',
+            'year'=>'required'
+         ]);
+
+         $bank = Bank::create($data);
+
+         return response($bank,200);
     }
 
     /**
@@ -75,10 +83,18 @@ class BanksController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $data= $request->validate([
+            'name'=>'required',
+            'year'=>'required'
+         ]);
+
+         $bank = Bank::where('id',$id)->update($data,$id);
+
+         return response($bank,200);
         //
     }
 
-    /**
+    /**s
      * Remove the specified resource from storage.
      *
      * @param  int  $id
